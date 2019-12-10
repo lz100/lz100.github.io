@@ -2,11 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://www.dcassol.com
-title: Daniela Cassol
-email: danicassol@gmail.com
-author: Daniela Cassol
-description: "Daniela's Personal Page"
+url: http://www.lezhang.me
+title: Le Zhang
+email: le.zhang001@email.ucr.edu
+author: Le Zhang
+description: "Le's Personal Page"
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -26,20 +26,20 @@ gems:
 social:
   - icon: github
     title: github
-    url: https://github.com/dcassol  
+    url: https://github.com/lz100  
   - icon: envelope-o
     title: email
-    url: mailto:danicassol@gmail.com
-  - icon: linkedin
-    title: linkedin
-    url: https://www.linkedin.com/in/dcassol/
-  - icon: file-pdf-o
-    title: CV
-    url: img/CassolDanielaCV.pdf
+    url: mailto:le.zhang001@email.ucr.edu
+ # - icon: linkedin
+ #   title: linkedin
+ #   url: https://www.linkedin.com/in/dcassol/
+ # - icon: file-pdf-o
+ #   title: CV
+ #   url: img/CassolDanielaCV.pdf
 #  - icon: website
 #    title: CV Lattes
 #    url: http://lattes.cnpq.br/5399100590606067
-  - icon: twitter
-    title: twitter
-    url: https://twitter.com/danicassol
+ # - icon: twitter
+ #   title: twitter
+ #   url: https://twitter.com/danicassol
 
