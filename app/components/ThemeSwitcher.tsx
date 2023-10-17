@@ -1,31 +1,30 @@
 "use client";
 
-import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
+import {useTheme} from "next-themes";
+import { useEffect, useState } from "react";
+import {MoonIcon} from "../../public/MoonIcon";
+import {SunIcon} from "../../public/SunIcon";
+import { Switch } from "@nextui-org/react";
 
-export const ThemeSwitcher = () => {
+export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  if (!mounted) {
-    return null
-  }
+  if(!mounted) return null
 
   return (
-    <div>
-      <span>A:{theme}</span>
-    <select value={theme} onChange={e => setTheme(e.target.value)}>
-      <option value="system">System</option>
-      <option value="dark">Dark</option>
-      <option value="light">Light</option>
-    </select>
-    </div>
-
+    <Switch
+    defaultSelected
+    size="lg"
+    color="default"
+    onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+    startContent={<SunIcon style={{ color: '#ffe934' }}/>}
+    endContent={<MoonIcon />}
+    >
+    </Switch>
   )
-}
-
+};
