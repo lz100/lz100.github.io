@@ -15,13 +15,17 @@ export function ThemeSwitcher() {
   }, [])
 
   if(!mounted) return null
+  console.log(theme);
 
   return (
     <Switch
     defaultSelected
     size="lg"
     color="default"
-    onChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+    onChange={() => {
+
+      setTheme(theme === 'dark' ? 'light' : 'dark')
+    }}
     startContent={<SunIcon style={{ color: '#ffe934' }}/>}
     endContent={<MoonIcon />}
     >
