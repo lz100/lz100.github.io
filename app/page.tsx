@@ -55,11 +55,11 @@ export default function Home() {
           </div>
         </section>
         <div className="flex flex-row m-4 max-w-5xl">
-          <div className="w-0 lg:w-full lg:max-w-[8rem] invisible lg:visible ml-[-15px] mr-[15px]">
-            <Toc exclude={['Le Zhang']}/>
+          <div className="w-0 lg:w-full lg:max-w-[8rem] invisible lg:visible ml-[-15px] mr-[15px] overflow-visible">
+            <Toc exclude={['Le Zhang']} scrollOffset={-64}/>
           </div>
           <div className="flex flex-col">
-            <section id="about-me" className='flex max-w-full flex-wrap items-start justify-center content-start' style={{height: '1000px'}}>
+            <section id="about-me" className='flex max-w-full flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
               <h1 className='text-4xl pb-5 font-serif'>About Me</h1>
               <hr className='w-full border-t-4'/>
               <p className='text-xl pt-5 indent-8'>
@@ -71,8 +71,16 @@ export default function Home() {
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ratione officia vitae architecto aspernatur cupiditate ullam aliquid deleniti sit nisi alias qui facere ad, libero magni amet voluptatibus necessitatibus laudantium?
               </p>
             </section>
-            <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '1000px'}}>
-              <h1 className='text-4xl pb-5 font-serif'>About Me</h1>
+            <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
+              <h1 className='text-4xl pb-5 font-serif'>Experience</h1>
+              <hr className='w-full border-t-4'/>
+            </section>
+            <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
+              <h1 className='text-4xl pb-5 font-serif'>Research</h1>
+              <hr className='w-full border-t-4'/>
+            </section>
+            <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
+              <h1 className='text-4xl pb-5 font-serif'>Projects</h1>
               <hr className='w-full border-t-4'/>
             </section>
           </div>

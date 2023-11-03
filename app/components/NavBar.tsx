@@ -13,6 +13,7 @@ interface menuItems {
 export function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuItems = {
+    'Research': '/research',
     'Projects': '/projects',
     'Contact': '/contact',
     'About the Website': '/about',
