@@ -77,11 +77,13 @@ export default function Home() {
             </section>
             <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
               <h1 className='text-4xl pb-5 font-serif'>Research</h1>
+              <h2 className='text-4xl pb-5 font-serif'>Projesscts 1</h2>
               <hr className='w-full border-t-4'/>
             </section>
             <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
               <h1 className='text-4xl pb-5 font-serif'>Projects</h1>
               <hr className='w-full border-t-4'/>
+              <h2 className='text-4xl pb-5 font-serif'>Projects 1</h2>
             </section>
           </div>
         </div>
