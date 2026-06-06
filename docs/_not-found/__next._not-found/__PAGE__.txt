@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/40tebbiax_jvb.js","/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[97367,["/_next/static/chunks/40tebbiax_jvb.js","/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","section",null,{"className":"shell flex min-h-[70vh] flex-col items-start justify-center py-20","children":[["$","p",null,{"className":"mono-label","children":"// error 404"}],["$","h1",null,{"className":"glow-accent mt-4 font-display text-7xl font-bold sm:text-9xl","children":"404"}],["$","p",null,{"className":"mt-4 max-w-md text-lg text-muted","children":"This page wandered off the sequence. Let's get you back on track."}],["$","$L2",null,{"href":"/","className":"cta mt-8","children":[["$","span",null,{"aria-hidden":"true","children":"←"}]," Back home"]}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"gmOhYPNLi0EPKSapP-G1O"}
+5:null
