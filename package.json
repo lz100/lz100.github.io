@@ -6,7 +6,7 @@
     "dev": "next dev -p 8001",
     "export": "next build && touch ./docs/.nojekyll && echo 'lezhang.me' > ./docs/CNAME",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -19,24 +19,25 @@
     "@nextui-org/react": "^2.1.13",
     "daisyui": "^3.9.4",
     "framer-motion": "^10.16.4",
-    "next": "latest",
-    "next-themes": "^0.2.1",
-    "react": "latest",
-    "react-dom": "latest",
+    "next": "16",
+    "next-themes": "^0.4.6",
+    "react": "19",
+    "react-dom": "19",
     "react-type-animation": "^3.2.0",
     "sass": "^1.69.4",
     "scss": "^0.2.4"
   },
   "devDependencies": {
-    "@types/node": "latest",
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
+    "@eslint/eslintrc": "^3.3.5",
+    "@types/node": "22",
+    "@types/react": "19",
+    "@types/react-dom": "19",
     "autoprefixer": "latest",
-    "eslint": "latest",
-    "eslint-config-next": "latest",
+    "eslint": "9",
+    "eslint-config-next": "16",
     "postcss": "latest",
     "prettier": "^3.8.3",
     "tailwindcss": "latest",
-    "typescript": "latest"
+    "typescript": "5"
   }
 }
