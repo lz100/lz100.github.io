@@ -1,32 +1,16 @@
-'use client';
-import Image from 'next/image';
+import NextLink from 'next/link';
 
 export default function NotFound() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
-      <Image src="rainbow-cat.gif" alt="Rainbow Cat" width={300} height={300} priority />
-      <p style={{ 
-        fontSize: '2rem', fontWeight: 'bold', marginTop: '2rem', 
-        background: 'linear-gradient(to right, #ff0000, #ff7f00, #ffff99, #00ff99, #0000ff, #4b0082, #8f00ff)', 
-        WebkitTextFillColor: 'transparent', 
-        WebkitBackgroundClip: 'text',
-        animation: 'rainbow 6s ease-in-out infinite',
-        backgroundSize: '200% 20%',
-        }}>
-          404 Page Not Found
+    <section className="shell flex min-h-[70vh] flex-col items-start justify-center py-20">
+      <p className="mono-label">{'// error 404'}</p>
+      <h1 className="glow-accent mt-4 font-display text-7xl font-bold sm:text-9xl">404</h1>
+      <p className="mt-4 max-w-md text-lg text-muted">
+        This page wandered off the sequence. Let&apos;s get you back on track.
       </p>
-      <style jsx>{`
-        @keyframes rainbow {
-          0%,100% {
-            background-position: 0 0;
-          }
-      
-          50% {
-              background-position: 100% 0;
-          }
-        }
-      `}</style>
-    </div>
-  )
+      <NextLink href="/" className="cta mt-8">
+        <span aria-hidden="true">←</span> Back home
+      </NextLink>
+    </section>
+  );
 }
-

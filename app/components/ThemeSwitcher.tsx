@@ -1,28 +1,21 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { MoonIcon } from '../../public/MoonIcon';
-import { SunIcon } from '../../public/SunIcon';
+import { MoonIcon } from './icons/MoonIcon';
+import { SunIcon } from './icons/SunIcon';
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
-
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
-
-  const isDark = resolvedTheme === 'dark';
 
   return (
     <button
       type="button"
-      aria-label={isDark ? 'Switch to light theme' : 'Switch to dark theme'}
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full text-foreground transition-colors hover:bg-default/40"
+      aria-label="Toggle color theme"
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full text-fg transition-colors hover:text-accent"
     >
-      {isDark ? <MoonIcon /> : <SunIcon style={{ color: '#f5a524' }} />}
+      <SunIcon className="hidden h-5 w-5 dark:block" />
+      <MoonIcon className="block h-5 w-5 dark:hidden" />
     </button>
   );
 }
