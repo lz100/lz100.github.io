@@ -1,0 +1,7 @@
+node_modules
+docs
+out
+.next
+bun.lockb
+package-lock.json
+*.scss

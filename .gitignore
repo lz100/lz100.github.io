@@ -39,4 +39,5 @@ next-env.d.ts
 /.claude-plugin/
 /CLAUDE.md
 /Plans.md
+/spec.md
 /harness.toml
