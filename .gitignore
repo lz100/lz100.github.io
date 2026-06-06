@@ -33,3 +33,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# claude code / harness
+/.claude/
+/.claude-plugin/
+/CLAUDE.md
+/Plans.md
+/harness.toml
