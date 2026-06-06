@@ -1,34 +1,21 @@
-"use client";
+'use client';
 
-import {useTheme} from "next-themes";
-import { useEffect, useState } from "react";
-import {MoonIcon} from "../../public/MoonIcon";
-import {SunIcon} from "../../public/SunIcon";
-import { Switch } from "@nextui-org/react";
+import { useTheme } from 'next-themes';
+import { MoonIcon } from './icons/MoonIcon';
+import { SunIcon } from './icons/SunIcon';
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if(!mounted) return null
-  console.log(theme);
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
-    <Switch
-    defaultSelected
-    size="lg"
-    color="default"
-    onChange={() => {
-
-      setTheme(theme === 'dark' ? 'light' : 'dark')
-    }}
-    startContent={<SunIcon style={{ color: '#ffe934' }}/>}
-    endContent={<MoonIcon />}
+    <button
+      type="button"
+      aria-label="Toggle color theme"
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full text-fg transition-colors hover:text-accent"
     >
-    </Switch>
-  )
-};
+      <SunIcon className="hidden h-5 w-5 dark:block" />
+      <MoonIcon className="block h-5 w-5 dark:hidden" />
+    </button>
+  );
+}

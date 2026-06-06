@@ -1,93 +1,145 @@
 'use client';
-import { TypeAnimation } from "react-type-animation";
-import { NavBar } from "./components/NavBar";
-import { Button } from "@nextui-org/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import Toc from "./components/Toc";
+
+import { motion } from 'motion/react';
+import NextLink from 'next/link';
+import { TypeAnimation } from 'react-type-animation';
+import { site, about, projects } from './content';
+import { SocialLinks } from './components/SocialLinks';
+import { Reveal } from './components/Reveal';
+
+const EASE = [0.21, 0.5, 0.27, 1] as const;
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.09, delayChildren: 0.08 } },
+};
+const item = {
+  hidden: { opacity: 0, y: 26 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: EASE } },
+};
+
+const roleSequence = site.roles.flatMap((r) => [`${r}.`, 1800]);
+const dna = 'ACGTACGTTGCAACGTAGCTTAGCGGATCAACGTTACGGCATGCAACGTAGCTTAGC';
 
 export default function Home() {
-  const [isReadMoreHover, setIsReadMoreHover] = useState(false);
-
-
   return (
     <>
-      <NavBar/>
-      <main className="flex flex-col flex-wrap items-stretch justify-center content-center">
-        <section 
-        className='flex flex-col lg:flex-row md:flex-row gap-1 w-full max-w-5xl'
-        style={{height: 'calc(70vh - 64px)'}}
+      {/* ---------- HERO ---------- */}
+      <section className="relative overflow-hidden">
+        {/* decorative vertical sequence */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute right-4 top-0 hidden h-full select-none font-mono text-xs leading-5 tracking-widest text-line-strong [writing-mode:vertical-rl] lg:block"
         >
-          <div className='w-1/2 self-center'>
-            <h3 className="text-blue-500 font-serif">
-              HEY YO! This is
-            </h3>
-            <h1 className="max-[640px]:text-2xl max-[768px]:text-center text-6xl font-serif font-bold text-gray-800">
-              Le Zhang
-            </h1>
+          {dna}
+        </span>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="shell flex min-h-[calc(100vh-4rem)] flex-col justify-center py-20"
+        >
+          <motion.p variants={item} className="mono-label">
+            {`// ${site.location} · open to collaboration`}
+          </motion.p>
+
+          <motion.h1
+            variants={item}
+            className="glow-accent mt-5 font-display text-[clamp(3rem,12vw,9rem)] font-bold uppercase leading-[0.92] tracking-tighter"
+          >
+            {site.name}
+          </motion.h1>
+
+          <motion.div
+            variants={item}
+            className="mt-4 font-display text-2xl text-muted sm:text-4xl"
+          >
+            I&apos;m a{' '}
             <TypeAnimation
-                sequence={[
-                  "I'm a data scientist.", 2000,
-                  "I'm a bioinformatician.", 2000,
-                  "I'm a researcher.", 2000,
-                  "I'm a web developer.", 2000,
-                ]}
-                repeat={Infinity}
-                className="max-[640px]:text-xl max-[768px]:text-center text-4xl text-red-400 font-serif pt-3 block"
+              sequence={roleSequence}
+              repeat={Infinity}
+              speed={50}
+              className="font-semibold text-accent"
             />
-            <Button
-              className={`
-                mt-5 bg-gradient-to-tr from-blue-300 to-purple-300 text-white shadow-lg
-                hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:shadow-xl transition-background duration-2000 ease-in-out
-                max-[640px]:w-full max-[768px]:w-full max-[768px]:text-sm
-              `}
-              radius="full"
-              onMouseEnter={() => setIsReadMoreHover(true)}
-              onMouseLeave={() => setIsReadMoreHover(false)}
-              onClick={() => {window.location.href = '#about-me';}}
-            >
-              Know More <FontAwesomeIcon icon={faAnglesDown} className='ml-2' beat={isReadMoreHover}/>
-            </Button>
-          </div>
-          <div className='w-1/2 self-center invisible md:visible lg:visible' style={{backgroundColor: 'tan'}}>
-            this site is under construction
-          </div>
-        </section>
-        <div className="flex flex-row m-4 max-w-5xl">
-          <div className="w-0 lg:w-full lg:max-w-[8rem] invisible lg:visible ml-[-15px] mr-[15px] overflow-visible">
-            <Toc exclude={['Le Zhang']} scrollOffset={-64}/>
-          </div>
-          <div className="flex flex-col">
-            <section id="about-me" className='flex max-w-full flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
-              <h1 className='text-4xl pb-5 font-serif'>About Me</h1>
-              <hr className='w-full border-t-4'/>
-              <p className='text-xl pt-5 indent-8'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ratione officia vitae architecto aspernatur cupiditate ullam aliquid deleniti sit nisi alias qui facere ad, libero magni amet voluptatibus necessitatibus laudantium?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ratione officia vitae architecto aspernatur cupiditate ullam aliquid deleniti sit nisi alias qui facere ad, libero magni amet voluptatibus necessitatibus laudantium?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ratione officia vitae architecto aspernatur cupiditate ullam aliquid deleniti sit nisi alias qui facere ad, libero magni amet voluptatibus necessitatibus laudantium?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ratione officia vitae architecto aspernatur cupiditate ullam aliquid deleniti sit nisi alias qui facere ad, libero magni amet voluptatibus necessitatibus laudantium?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ratione officia vitae architecto aspernatur cupiditate ullam aliquid deleniti sit nisi alias qui facere ad, libero magni amet voluptatibus necessitatibus laudantium?
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ratione officia vitae architecto aspernatur cupiditate ullam aliquid deleniti sit nisi alias qui facere ad, libero magni amet voluptatibus necessitatibus laudantium?
-              </p>
-            </section>
-            <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
-              <h1 className='text-4xl pb-5 font-serif'>Experience</h1>
-              <hr className='w-full border-t-4'/>
-            </section>
-            <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
-              <h1 className='text-4xl pb-5 font-serif'>Research</h1>
-              <h2 className='text-4xl pb-5 font-serif'>Projesscts 1</h2>
-              <hr className='w-full border-t-4'/>
-            </section>
-            <section id="about-me" className='flex  max-w-5xl flex-wrap items-start justify-center content-start' style={{height: '500px'}}>
-              <h1 className='text-4xl pb-5 font-serif'>Projects</h1>
-              <hr className='w-full border-t-4'/>
-              <h2 className='text-4xl pb-5 font-serif'>Projects 1</h2>
-            </section>
-          </div>
+          </motion.div>
+
+          <motion.p
+            variants={item}
+            className="mt-8 max-w-xl text-lg leading-relaxed text-fg/80"
+          >
+            {site.tagline}
+          </motion.p>
+
+          <motion.div variants={item} className="mt-10 flex flex-wrap items-center gap-4">
+            <NextLink href="/projects" className="cta">
+              View projects <span aria-hidden="true">→</span>
+            </NextLink>
+            <NextLink href="/contact" className="cta-ghost">
+              Get in touch
+            </NextLink>
+          </motion.div>
+
+          <motion.div variants={item} className="mt-10">
+            <SocialLinks />
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* ---------- ABOUT TEASER ---------- */}
+      <section className="shell border-t border-line py-20">
+        <div className="grid gap-10 md:grid-cols-[0.4fr_0.6fr]">
+          <Reveal>
+            <p className="mono-label">{'// 01 — about'}</p>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <div>
+              <p className="font-display text-2xl leading-snug sm:text-3xl">{about.lead}</p>
+              <NextLink
+                href="/about"
+                className="mono-label mt-6 inline-block transition-colors hover:text-accent"
+              >
+                More about me <span aria-hidden="true">↗</span>
+              </NextLink>
+            </div>
+          </Reveal>
         </div>
-      </main>
+      </section>
+
+      {/* ---------- SELECTED WORK ---------- */}
+      <section className="shell border-t border-line py-20">
+        <Reveal>
+          <div className="flex items-end justify-between">
+            <p className="mono-label">{'// 02 — selected work'}</p>
+            <NextLink
+              href="/projects"
+              className="mono-label transition-colors hover:text-accent"
+            >
+              all projects ↗
+            </NextLink>
+          </div>
+        </Reveal>
+
+        <ul className="mt-8 divide-y divide-line border-y border-line">
+          {projects.slice(0, 3).map((p, i) => (
+            <Reveal as="li" key={p.name} delay={i * 0.06}>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col gap-2 py-6 transition-colors hover:bg-surface/40 sm:flex-row sm:items-baseline sm:justify-between"
+              >
+                <div className="flex items-baseline gap-4">
+                  <span className="section-index">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="font-display text-2xl font-semibold transition-colors group-hover:text-accent sm:text-3xl">
+                    {p.name}
+                  </span>
+                </div>
+                <span className="max-w-md text-muted sm:text-right">{p.tagline}</span>
+              </a>
+            </Reveal>
+          ))}
+        </ul>
+      </section>
     </>
-  )
+  );
 }
